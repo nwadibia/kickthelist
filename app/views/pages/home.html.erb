@@ -1,5 +1,13 @@
 <div class="jumbotron center">
 	<h1>KickTheList</h1>
-	<p>Brandish your accomplishment, do more.</p>
-<%= link_to "log in","#", class: "btn btn-default" %>
-<%= link_to "sign up","#", class: "btn btn-primary" %>	
+
+	<% if user_signed_in? %>
+          # do something
+     <% else %>
+
+		<p>A collection of the worlds doers, movers and shakers.</p>
+			<%= link_to "log in", new_user_session_path, class: "btn btn-default" %>
+			<%= link_to "sign up", new_user_registration_path, class: "btn btn-primary" %>	
+		</p>
+	<% end %>
+</div>
