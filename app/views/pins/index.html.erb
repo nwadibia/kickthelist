@@ -2,36 +2,27 @@
 
 
 <div id="pins" class="infinitescroll-enabled">
-<table>
-    <thead>
-      <tr>
-          <th></th>
-          <th colspan="1"></th>
-      </tr>
-    </thead>
     
-    <div class="box panel">
+ 
       
-          <tbody>
-            <div class="panel-body">
+            
               <% @pins.each do |pin| %>
-                
-                  <tr>
-                    <td><%= link_to pin.description, pin %><p>
+
+                <div class="box panel panel-default">
+                  <div class="panel-body">
+                      <%= link_to pin.description, pin %><br>
                       <%= pin.user.email if pin.user %>
                       <% if pin.user == current_user%>
-                          <%= link_to 'Kick', edit_pin_path(pin) %>
-                          <%= link_to 'Destroy', pin, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                        <div class="actions">
+                          <%= link_to 'Kick', edit_pin_path(pin) %> |
+                          <%= link_to 'Delete', pin, method: :delete, data: { confirm: 'Are you sure?' } %>
+                        </div>
                     <% end %>
-                  </tr>
-                
+                  </div>
+                </div>  
             <% end %>
-          </div>
-          </tbody>
-    
-  </div>
+        
 
-</table>
     
 </div> 
 
