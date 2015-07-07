@@ -3,4 +3,6 @@
 <%= render 'form' %>
 
 <%= link_to 'Show', @pin %> |
-<%= link_to 'Back', pins_path %>
+<%= link_to 'Back', pins_path %> | 
+<%= link_to 'Delete', @pin, method: :delete, data: { confirm: 'Are you sure?' } %>
+

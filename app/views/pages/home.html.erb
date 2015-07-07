@@ -3,7 +3,7 @@
 
 	
 	<% if user_signed_in? %>
-          # do something
+          <%= link_to "discover", pins_path %>
      
      <% else %>
 			<p>Create and explore a collection of the worlds awesome and interesting things to do.</p>
@@ -12,3 +12,5 @@
 			</p>
 	<% end %>
 </div>
+
+
