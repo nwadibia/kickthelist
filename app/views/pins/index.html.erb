@@ -1,4 +1,7 @@
-<%= link_to 'List Something', new_pin_path %>
+<%= link_to new_pin_path do %>
+ <span class="glyphicon glyphicon-plus"></span> List Something
+<% end %>
+        
 
 
 <div id="pins" class="infinitescroll-enabled">
@@ -11,10 +14,12 @@
                 <div class="box panel panel-default">
                   <div class="panel-body">
                       <%= link_to pin.description, pin %><br>
-                      <%= pin.user.email if pin.user %>
+                      <strong><%= pin.user.email if pin.user %></strong>
                       <% if pin.user == current_user%>
                         <div class="actions">
-                          <%= link_to 'Kick', edit_pin_path(pin) %> |
+                          <%= link_to edit_pin_path (pin) do %>
+              <span class="glyphicon glyphicon-ok"></span> kick
+            <% end %> |
                           <%= link_to 'Delete', pin, method: :delete, data: { confirm: 'Are you sure?' } %>
                         </div>
                     <% end %>

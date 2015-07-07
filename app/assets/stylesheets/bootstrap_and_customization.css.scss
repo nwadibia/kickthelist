@@ -8,6 +8,7 @@ $navbar-default-brand-color:      white;
 $brand-primary:                                   #2980b9;
 
 @import 'bootstrap';
+@import "bootstrap-sprockets";
 
 .center { 
 	text-align: center;

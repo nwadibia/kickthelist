@@ -1,8 +1,13 @@
-<h1>Editing pin</h1>
+<%= link_to 'Back', pins_path %> 
+
+<h1>Edit</h1>
 
 <%= render 'form' %>
 
-<%= link_to 'Show', @pin %> |
-<%= link_to 'Back', pins_path %> | 
-<%= link_to 'Delete', @pin, method: :delete, data: { confirm: 'Are you sure?' } %>
+
+<%= link_to 'View', @pin %> |
+<%= link_to @pin, method: :delete, data: { confirm: 'Are you sure?' } do %>
+              <span class="glyphicon glyphicon-trash"></span>
+              Delete
+            <% end %>
 
