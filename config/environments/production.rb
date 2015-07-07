@@ -85,6 +85,7 @@ Rails.application.configure do
   #note to set this for
 config.action_mailer.default_url_options = { :host => 'kickthelist.com' }
 
+# Sets paperclip to upload images to Amazon S3
 config.paperclip_defaults = {
   :storage => :s3,
   :s3_credentials => {
