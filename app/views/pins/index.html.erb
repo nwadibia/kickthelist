@@ -1,35 +1,35 @@
+<%= render 'pages/home' unless user_signed_in? %>
+
+
+<% if user_signed_in? %>
+
+<div class="panel center">
+<h2> The Ultimate List of Awesomeness</h2>
 <%= link_to new_pin_path do %>
- <span class="glyphicon glyphicon-plus"></span> List Something
+ <span class="glyphicon glyphicon-plus"></span> Add to the list
 <% end %>
+</div>
         
 
 
 <div id="pins" class="infinitescroll-enabled">
-    
- 
-      
-            
-              <% @pins.each do |pin| %>
-
-                <div class="box panel panel-default">
-                  <div class="panel-body">
-                      <%= link_to pin.description, pin %><br>
-                      <strong><%= pin.user.email if pin.user %></strong>
-                      <% if pin.user == current_user%>
-                        <div class="actions">
-                          <%= link_to edit_pin_path (pin) do %>
-              <span class="glyphicon glyphicon-ok"></span> kick
-            <% end %> |
-                          <%= link_to 'Delete', pin, method: :delete, data: { confirm: 'Are you sure?' } %>
-                        </div>
-                    <% end %>
-                  </div>
-                </div>  
-            <% end %>
-        
-
-    
+          
+  <% @pins.each do |pin| %>
+    <div class="box panel panel-default">
+      <div class="panel-body center">
+          <%= link_to pin.description, pin %><br>
+          <strong><%= pin.user.email if pin.user %></strong>
+          <% if pin.user == current_user%>
+            <div class="actions">
+              <%= link_to 'kick', edit_pin_path(pin)%> |
+              <%= link_to 'Delete', pin, method: :delete, data: { confirm: 'Are you sure?' } %>
+            </div>
+        <% end %>
+      </div>
+    </div>  
+<% end %>
 </div> 
 
-
+<% else %>
+<%end%>
 
