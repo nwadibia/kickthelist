@@ -16,7 +16,7 @@
           
   <% @pins.each do |pin| %>
     <div class="box panel panel-default">
-      <div class="panel-body center">
+      <div class="panel-body">
           <%= link_to pin.description, pin %><br>
           <strong><%= pin.user.email if pin.user %></strong>
           <% if pin.user == current_user%>
@@ -33,3 +33,6 @@
 <% else %>
 <%end%>
 
+<div class="center">
+   <%= will_paginate @pins, renderer: BootstrapPagination::Rails %>
+</div>
