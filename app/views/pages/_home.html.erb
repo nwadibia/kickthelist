@@ -1,16 +1,18 @@
-<div class="jumbotron center">
-	<h1>KickTheList</h1>
+<body background="https://s3.amazonaws.com/kickthelist/media/images/CityScape.jpg">
 
-	
-	<% if user_signed_in? %>
-          <%= link_to "discover", pins_path %>
-     
-     <% else %>
-			<p>Create and explore a collection of the worlds awesome and interesting things to do.</p>
-				<%= link_to "log in", new_user_session_path, class: "btn btn-default" %>
-				<%= link_to "sign up", new_user_registration_path, class: "btn btn-primary" %>	
-			</p>
-	<% end %>
-</div>
+		<div class="jumbotron center">
+			<h1>KickTheList</h1>
 
+			
+			<% if user_signed_in? %>
+		          <%= link_to "discover", pins_path %>
+		     
+		     <% else %>
+					<p>Create your collection of awesome things to do. Then do it! #KickTheList</p>
+						<%= link_to "log in", new_user_session_path, class: "btn btn-default" %> &nbsp;&nbsp;&nbsp;
+						<%= link_to "sign up", new_user_registration_path, class: "btn btn-primary" %>	
+					</p>
+			<% end %>
+		</div>
 
+</body>

@@ -1,10 +1,13 @@
+<body background="https://s3.amazonaws.com/kickthelist/media/images/CityScape.jpg">
+
+
 <%= render 'pages/home' unless user_signed_in? %>
 
 
 <% if user_signed_in? %>
 
-<div class="panel center">
-<h2> Discover What Others Are Doing</h2>
+<div class="center">
+<h2> #KickTheList</h2>
 <%= link_to new_pin_path do %>
  <span class="glyphicon glyphicon-plus"></span> Add to the list
 <% end %>
@@ -35,3 +38,5 @@
 <div class="center">
    <%= will_paginate @pins, renderer: BootstrapPagination::Rails %>
 </div>
+
+</body>

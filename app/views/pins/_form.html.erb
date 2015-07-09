@@ -1,3 +1,4 @@
+<body background="https://s3.amazonaws.com/kickthelist/media/images/CityScape.jpg">
 <%= form_for @pin, html: { multipart: true } do |f| %>
   <% if @pin.errors.any? %>
     <div id="error_explanation">
@@ -25,3 +26,4 @@
     <%= f.submit class: "btn btn-primary" %>
   </div>
 <% end %>
+</body>
