@@ -3,6 +3,6 @@ class PagesController < ApplicationController
   end
   def about
   end
-  def myprofile
+  def mylist
   end
 end
