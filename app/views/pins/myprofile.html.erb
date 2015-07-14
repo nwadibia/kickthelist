@@ -1,3 +1,5 @@
+<body background="https://s3.amazonaws.com/kickthelist/media/images/CityScape.jpg">
+
 <% if user_signed_in? %>
 
 <div class="center">
@@ -41,4 +43,7 @@
 
 <div class="center">
    <%= will_paginate @pins, renderer: BootstrapPagination::Rails %>
+
+   <%= link_to "Log out", destroy_user_session_path, method: :delete %>
 </div>
+</body>
