@@ -2,8 +2,11 @@ Rails.application.routes.draw do
   resources :pins
 
   devise_for :users
-  root "pins#index"
-  get "mylist" => "pins#mylist"
+  
+
+  root "pins#mylist"
+  get "discover" => "pins#index"
+  get "myprofile" => "pins#myprofile"
   get "about" => "pages#about"
 
   # The priority is based upon order of creation: first created -> highest priority.

@@ -13,8 +13,16 @@
 				  	<p><strong><%= @pin.user.name if @pin.user %></strong></p>
 				
 						<% if @pin.user == current_user %> 
-						<%= link_to 'kick', edit_pin_path(@pin)%>
-				<% end %> 
+						<%= link_to 'kick', edit_pin_path(@pin)%> |
+						<% end %>  
+
+							<% if @pin.user == current_user %> 
+						<%= link_to 'edit', edit_pin_path(@pin)%> |
+						<% end %> 
+
+						<% if @pin.user == current_user %>
+						<%= link_to 'Delete', @pin, method: :delete, data: { confirm: 'Are you sure?' } %>
+						<% end %>
 
 				</div>
 		</div>

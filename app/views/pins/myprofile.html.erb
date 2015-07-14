@@ -1,19 +1,21 @@
-<body background="https://s3.amazonaws.com/kickthelist/media/images/CityScape.jpg">
-
-
-<%= render 'pages/home' unless user_signed_in? %>
-
-
 <% if user_signed_in? %>
 
 <div class="center">
 <font color="white"><h2> #KickTheList</h2>
-<p> Add awesome stuff to your list. Kick the things you've done! <p></font>
-<%= link_to new_pin_path do %>
- <span class="glyphicon glyphicon-plus"></span> Add to your list
-<% end %>
+<p> Kick the things you've done, relist the things you're gonna do! <p></font>
 </div>
-        
+     
+     <div class="center">
+     <%= current_user.name %> <p>
+
+     <%= link_to root_path do %>
+ <span class="glyphicon glyphicon-plus"></span> View Your List 
+<% end %>
+   
+   <p> <%= link_to "Edit Account", edit_user_registration_path %>
+
+   </div>
+
 
 
 <div id="pins" class="infinitescroll-enabled">
@@ -24,7 +26,8 @@
           <strong><%= pin.user.name if pin.user %></strong> &nbsp;&nbsp;&nbsp;
           <%= link_to pin.description, pin %>
           <% if pin.user == current_user%>
-            <div class="actions">
+            
+             <div class="actions">
               <%= link_to 'kick', edit_pin_path(pin)%> 
             </div>
         <% end %>
@@ -39,5 +42,3 @@
 <div class="center">
    <%= will_paginate @pins, renderer: BootstrapPagination::Rails %>
 </div>
-
-</body>
