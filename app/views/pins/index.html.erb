@@ -6,11 +6,11 @@
 
 <% if user_signed_in? %>
 
-<div class="center">
-<font color="white"><h2> #KickTheList</h2>
-<p> Kick things you've done, relist the things you want to do! <p></font>
-<%= link_to "Add to the list", new_pin_path, class: "btn btn-success" %> <br><br>
-</div>
+    <div class="center">
+        <font color="white"><h2> Discover #KickTheList</h2>
+        <p> Kick things you've done, relist the things you want to do! <p></font>
+        <%= link_to "Add to the list", new_pin_path, class: "btn btn-success" %> <br><br>
+    </div>
         
 
 
@@ -19,16 +19,21 @@
   <% @pins.each do |pin| %>
     <div class="box panel panel-default">
       <div class="panel-body">
+          <div class="panel panel-default">
+          <div class="panel-heading center">
+           <%= image_tag pin.user.image.url(:thumb) %>
+          </div>
+          </div>
           <strong><%= pin.user.name if pin.user %></strong> &nbsp;&nbsp;&nbsp;
           <%= link_to pin.description, pin %>
           <% if pin.user == current_user%>
             <div class="actions">
               <%= link_to 'kick', edit_pin_path(pin)%> 
             </div>
-        <% end %>
+          <% end %>
       </div>
     </div>  
-<% end %>
+  <% end %>
 </div> 
 
 <% else %>
