@@ -3,47 +3,21 @@
 <% if user_signed_in? %>
 
 <div class="center">
-<font color="white"><h2> #KickTheList</h2>
-<p> Kick the things you've done, relist the things you're gonna do! <p></font>
-</div>
+<font color="white"><h2>Hi, <%= current_user.name %></h2></font>
+</div> <br><br>
      
      <div class="center">
-     <%= current_user.name %> <p>
-
-     <%= link_to root_path do %>
- <span class="glyphicon glyphicon-plus"></span> View Your List 
-<% end %>
-   
-   <p> <%= link_to "Edit Account", edit_user_registration_path %>
-
+          <%= link_to "View Your List", mylist_path, class: "btn btn-success" %> &nbsp;&nbsp;&nbsp;
+     <%= link_to "Edit your profile", edit_user_registration_path, class: "btn btn-default" %> <br><br>
+      <p><%= link_to "Log out", destroy_user_session_path, method: :delete %>
    </div>
 
 
 
-<div id="pins" class="infinitescroll-enabled">
-          
-  <% @pins.each do |pin| %>
-    <div class="box panel panel-default">
-      <div class="panel-body">
-          <strong><%= pin.user.name if pin.user %></strong> &nbsp;&nbsp;&nbsp;
-          <%= link_to pin.description, pin %>
-          <% if pin.user == current_user%>
-            
-             <div class="actions">
-              <%= link_to 'kick', edit_pin_path(pin)%> 
-            </div>
-        <% end %>
-      </div>
-    </div>  
-<% end %>
-</div> 
+
 
 <% else %>
 <%end%>
 
-<div class="center">
-   <%= will_paginate @pins, renderer: BootstrapPagination::Rails %>
-
-   <%= link_to "Log out", destroy_user_session_path, method: :delete %>
 </div>
 </body>

@@ -7,12 +7,10 @@
 <% if user_signed_in? %>
 
 <div class="center">
-<font color="white"><h2> #KickTheList</h2>
-<p> Add awesome stuff to your list. Kick the things you've done! <p></font>
-<%= link_to new_pin_path do %>
- <span class="glyphicon glyphicon-plus"></span> Add to your list
-<% end %>
-</div>
+<font color="white"><h2> Hi, <%= current_user.name %> <p> #KickTheList</h2> <br></font>
+<!-- <p> Add awesome stuff to your list. Kick the things you've done! <p></font> --> 
+
+<%= link_to "Add to your list", new_pin_path, class: "btn btn-success" %></div> <br><br>
         
 
 

@@ -14,7 +14,7 @@ class PinsController < ApplicationController
   end
 
   def myprofile
-    @pins = current_user.pins.all.order("created_at DESC").paginate(:page => params[:page], :per_page =>20)
+    @pins = current_user.pins
   end
 
   def discover
