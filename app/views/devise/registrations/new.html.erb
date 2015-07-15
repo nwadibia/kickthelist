@@ -2,7 +2,7 @@
 
 <div class="panel panel-default">
 	<div class="panel-heading">
-		<h4>You're one step closer. Create your user name and password</h4>
+		<h4>Creat your profile</h4>
 	</div>
 
 		<div class="panel-body">
@@ -17,6 +17,11 @@
 				  <div class="form-group">
 				  	<%= f.label :email %><br />
 				  	<%= f.email_field :email, autofocus: true, class: "form-control" %></div>
+
+				  <div class="form-group">
+    			<%= f.label :profile_picture %>
+    			<%= f.file_field :image, class: "form-control" %>
+  				</div>
 
 				  <div class="form-group">
 				  	<%= f.label :password %><br />

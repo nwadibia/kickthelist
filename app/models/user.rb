@@ -5,10 +5,12 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   has_many :pins 
-  has_attached_file :image, :styles => { :medium => "100x100>", :thumb => "100x100>" }, :default_url => "/images/:style/missing.png"
+  has_attached_file :image, :styles => { :medium => "100x100>", :thumb => "20x20#" }, :default_url => "/images/:style/missing.png"
 
   validates :name, presence: true
   validates :name, length: {maximum: 15 }
   validates :name, length: {minimum: 2 }
   validates :name, uniqueness: true 
+  validates_attachment_content_type :image, :content_type => ["image/jpg", "image/jpeg", "image/png", "image/gif"]
+
 end
