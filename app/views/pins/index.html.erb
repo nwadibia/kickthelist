@@ -7,8 +7,9 @@
 <% if user_signed_in? %>
 
     <div class="center">
-        <font color="white"><h2> Discover #KickTheList</h2>
-        <p> Discover what others have listed. Re-list the things you want to do! <p></font>
+        <font color="white"><h2> Discover</h2>
+        <p> Discover what others have listed. Re-list the things you want to do! 
+          <p><h3>#KickTheList</h3></font><p>
         <%= link_to "Add to the list", new_pin_path, class: "btn btn-success" %> <br><br>
     </div>
         
@@ -18,16 +19,20 @@
   <% @pins.each do |pin| %>
     <div class="box panel panel-default">
       <div class="panel-body">
-           <div>
-          <strong><%= pin.user.name if pin.user %></strong>
-          </div> 
-              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-          <%= link_to pin.description, pin %>
-                <!-- <% if pin.user == current_user%>
+            <div class= "media">
+              <div class="media-left">
+                <%= image_tag pin.user.image.url(:medium) %>
+                <strong><%= pin.user.name if pin.user %></strong>
+              </div> 
+                <div class="media-body media-middle", style="padding-left: 10px">
+                  <%= link_to pin.description, pin %>
+                  <!-- <% if pin.user == current_user%>
                   <div class="actions">
                     <%= link_to 'kick', edit_pin_path(pin)%> 
                   </div>
                 <% end %> -->
+                </div>
+            </div>
       </div>
     </div>  
   <% end %>

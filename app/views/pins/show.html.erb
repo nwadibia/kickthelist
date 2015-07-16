@@ -23,7 +23,7 @@
 						<% end %> 
 
 						<% if @pin.user == current_user %>
-						<%= link_to 'Delete', @pin, method: :delete, data: { confirm: 'Are you sure?' } %>
+						<%= link_to 'delete', @pin, method: :delete, data: { confirm: 'Are you sure?' } %>
 						<% end %>
 
 				</div>
