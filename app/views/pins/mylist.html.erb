@@ -1,4 +1,4 @@
-<body background="https://s3.amazonaws.com/kickthelist/media/images/CityScape.jpg">
+<body background="https://s3.amazonaws.com/kickthelist/media/images/CityScape.jpg" >
 
 
 <%= render 'pages/home' unless user_signed_in? %>
@@ -13,7 +13,7 @@
 <%= link_to "Add to your list", new_pin_path, class: "btn btn-success" %></div> <br><br>
         
 
-<div id="pins" class="infinitescroll-enabled">
+<div id="pins-center" class="left">
           
   <% @pins.each do |pin| %>
     <div class="box panel panel-default">

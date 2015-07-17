@@ -5,6 +5,6 @@ class Pin < ActiveRecord::Base
 		validates_attachment_content_type :image, :content_type => ["image/jpg", "image/jpeg", "image/png"]
 
 		validates :description, presence: true
-		validates :description, length: {maximum: 50 }
+		validates :description, length: {maximum: 75 }
 		validates :description, length: {minimum: 2 }
 end
