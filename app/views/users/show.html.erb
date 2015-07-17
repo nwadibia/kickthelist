@@ -6,7 +6,9 @@
 		<font color="white"><h2> Welcome to <%= @user.name%>'s list</h2></font>
 			</div> <br><br>     
 	    	 <div class="center">
-		     		<%= image_tag @user.image.url(:medium) %> <p> <br> <br> 
+ 		     		<%= image_tag @user.image.url(:medium) %> <br><br> 
+             <font color="white"><h4>
+             <%= @user.pins.count %> items listed
 	   		</div>
 	</div>
 <% else %>
