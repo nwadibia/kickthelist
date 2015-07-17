@@ -1,27 +1,26 @@
 <body background="https://s3.amazonaws.com/kickthelist/media/images/CityScape.jpg">
 
-
-<%= render 'pages/home' unless user_signed_in? %>
-
-
 <% if user_signed_in? %>
 
-    <div class="center">
-        <font color="white"><h2> Discover</h2>
-        <p> Discover what others have listed. Re-list the things you want to do! 
-          <p><h3>#KickTheList</h3></font><p>
-        <%= link_to "Add to the list", new_pin_path, class: "btn btn-success" %> <br><br>
-    </div>
-        
+	<div class="center">
+		<font color="white"><h2> Welcome to <%= @user.name%>'s list</h2></font>
+			</div> <br><br>     
+	    	 <div class="center">
+		     		<%= image_tag @user.image.url(:medium) %> <p> <br> <br> 
+	   		</div>
+	</div>
+<% else %>
+<%end%>
+</body>
 
 <div id="pins-center" class="left">
           
-  <% @pins.each do |pin| %>
+  <% @user.pins.each do |pin| %>
     <div class="box panel panel-default">
       <div class="panel-body">
             <div class= "media">
               <div class="media-left">
-                <%=link_to (image_tag pin.user.image.url(:medium)), pin.user if pin.user %>
+                <%= image_tag pin.user.image.url(:medium) if pin.user %>
                 <strong><%= pin.user.name if pin.user %></strong>
               </div> 
                 <div class="media-body media-middle", style="padding-left: 10px">
@@ -37,12 +36,3 @@
     </div>  
   <% end %>
 </div> 
-
-<% else %>
-<%end%>
-
-<div class="center">
-   <%= will_paginate @pins, renderer: BootstrapPagination::Rails %>
-</div>
-
-</body>

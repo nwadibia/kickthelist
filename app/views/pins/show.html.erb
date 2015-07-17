@@ -12,7 +12,7 @@
 					</div>
 			 	<div class="panel-body"> 
 				 		<p><%= @pin.description %></p>
-				  	<p><strong><%= @pin.user.name if @pin.user %></strong></p>
+				  	<p><strong><%=link_to (@pin.user.name), @pin.user if @pin.user %></strong></p>
 				
 						<% if @pin.user == current_user %> 
 						<%= link_to 'kick', edit_pin_path(@pin)%> |
@@ -29,4 +29,8 @@
 				</div>
 		</div>
 	</div>
+</div>
+
+<div class="center">
+<%= link_to "Back", :back %> | <%= link_to "Discover", root_path%>
 </div>
