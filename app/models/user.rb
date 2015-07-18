@@ -11,6 +11,7 @@ class User < ActiveRecord::Base
   validates :name, length: {maximum: 15 }
   validates :name, length: {minimum: 2 }
   validates :name, uniqueness: true 
+  validates :image, presence: true 
   validates_attachment_content_type :image, :content_type => ["image/jpg", "image/jpeg", "image/png", "image/gif"]
 
 end
