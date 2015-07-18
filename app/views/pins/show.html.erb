@@ -7,55 +7,60 @@
 	<div class="col-md-offset-2 col-md-8">
 			
 		<div class="panel panel-primary">
-					<div class="panel-heading center">
-						<%= image_tag @pin.image.url(:medium) %>
-					</div>
-			 	<div class="panel-body", style="font-size: 16px"> 
-				 	<p><%= @pin.description %></p>
+			<div class="panel-heading center">
+				<%= image_tag @pin.image.url(:medium) %>
+			</div>
+	 		<div class="panel-body", style="font-size: 17px"> 
+		 		<p><%= @pin.description %></p>
 
-				  	<p><strong><%=link_to (@pin.user.name), @pin.user if @pin.user %></strong></p>
-				</div>
+		  	<p><strong><%=link_to (@pin.user.name), @pin.user if @pin.user %></strong></p>
+			</div>
+			
+			<div class="center">
+				<% if @pin.user == current_user %> 
+				<%= link_to 'kick', edit_pin_path(@pin)%> |
+				<% end %>  
+
+				<% if @pin.user == current_user %> 
+				<%= link_to 'edit', edit_pin_path(@pin)%> |
+				<% end %> 
+
+				<% if @pin.user == current_user %>
+				<%= link_to 'delete', @pin, method: :delete, data: { confirm: 'Are you sure?' } %>
+				<% end %> <br> <br>
+			</div>
 		</div>
 	</div>
 </div>
 
+
 <div class="center">
-	<% if @pin.user == current_user %> 
-						<%= link_to 'kick', edit_pin_path(@pin)%> |
-						<% end %>  
+<br> <br> <h4><font color="gray"> people who listed something similar </h4></font>
+</div> 
 
-						<% if @pin.user == current_user %> 
-						<%= link_to 'edit', edit_pin_path(@pin)%> |
-						<% end %> 
-
-						<% if @pin.user == current_user %>
-						<%= link_to 'delete', @pin, method: :delete, data: { confirm: 'Are you sure?' } %>
-						<% end %>
+<div class="row">
+ <div class="col-md-offset-2 col-md-8">
+		<div class="similar">
+		<% @pins.each do |pin| %>
+		    <div class="box panel panel-primary">
+		      <div class="panel-body">
+		            <div class= "media">
+		              <div class="media-left">
+		                <%=link_to (image_tag pin.user.image.url(:medium)), pin.user if pin.user %>
+		                <strong><%= pin.user.name if pin.user %></strong>
+		              </div> 
+		                <div class="media-body media-middle", style="padding-left: 10px; font-size: 17px">
+		                <%= link_to pin.description, pin %>
+		                  <!-- <% if pin.user == current_user%>
+		                  <div class="actions">
+		                    <%= link_to 'kick', edit_pin_path(pin)%> 
+		                  </div>
+		                <% end %> -->
+		                </div>
+		            </div>
+		      </div>
+		    </div>  
+		  <% end %>
+		 </div>
 </div>
-
-
-<div class="center">
-<br> <br> <h3> other's who listed something similar </h3>
-</div> <br>
-<div class="similar">
-<% @pins.each do |pin| %>
-    <div class="box panel panel-primary">
-      <div class="panel-body">
-            <div class= "media">
-              <div class="media-left">
-                <%=link_to (image_tag pin.user.image.url(:medium)), pin.user if pin.user %>
-                <strong><%= pin.user.name if pin.user %></strong>
-              </div> 
-                <div class="media-body media-middle", style="padding-left: 10px; font-size: 16px">
-                <%= link_to pin.description, pin %>
-                  <!-- <% if pin.user == current_user%>
-                  <div class="actions">
-                    <%= link_to 'kick', edit_pin_path(pin)%> 
-                  </div>
-                <% end %> -->
-                </div>
-            </div>
-      </div>
-    </div>  
-  <% end %>
- </div>
+</div>

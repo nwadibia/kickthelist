@@ -18,14 +18,14 @@
 <div id="pins-center" class="left">
 
       <% @pins.each do |pin| %>
-        <div class="panel panel-primary">
+        <div class="panel panel-primary"> <!-- changed from box panel and added row class atop -->
           <div class="panel-body">
                 <div class= "media">
                   <div class="media-left">
                     <%=link_to (image_tag pin.user.image.url(:medium)), pin.user if pin.user %> <br>
                     <strong><%= pin.user.name if pin.user %></strong>
                   </div> 
-                    <div class="media-body media-middle", style="padding-left: 15px; font-size: 20px">
+                    <div class="media-body media-middle", style="padding-left: 15px; font-size: 17px">
                       <%= link_to pin.description, pin %>
                       <!-- <% if pin.user == current_user%>
                       <div class="actions">
