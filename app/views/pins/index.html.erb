@@ -15,34 +15,34 @@
         
 
 <div id="pins-center" class="left">
-          
-  <% @pins.each do |pin| %>
-    <div class="box panel panel-default">
-      <div class="panel-body">
-            <div class= "media">
-              <div class="media-left">
-                <%=link_to (image_tag pin.user.image.url(:medium)), pin.user if pin.user %>
-                <strong><%= pin.user.name if pin.user %></strong>
-              </div> 
-                <div class="media-body media-middle", style="padding-left: 10px">
-                  <%= link_to pin.description, pin %>
-                  <!-- <% if pin.user == current_user%>
-                  <div class="actions">
-                    <%= link_to 'kick', edit_pin_path(pin)%> 
-                  </div>
-                <% end %> -->
-                </div>
-            </div>
-      </div>
-    </div>  
-  <% end %>
-</div> 
 
+      <% @pins.each do |pin| %>
+        <div class="box panel panel-default">
+          <div class="panel-body">
+                <div class= "media">
+                  <div class="media-left">
+
+              
+                    <%=link_to (image_tag pin.user.image.url(:medium)), pin.user if pin.user %>
+                    <strong><%= pin.user.name if pin.user %></strong>
+                  </div> 
+                    <div class="media-body media-middle", style="padding-left: 10px">
+                      <%= link_to pin.description, pin %>
+                      <!-- <% if pin.user == current_user%>
+                      <div class="actions">
+                        <%= link_to 'kick', edit_pin_path(pin)%> 
+                      </div>
+                    <% end %> -->
+                    </div>
+                </div>
+          </div>
+        </div>  
+      <% end %>
+</div> 
 <% else %>
 <%end%>
 
 <div class="center">
    <%= will_paginate @pins, renderer: BootstrapPagination::Rails %>
 </div>
-
 </body>

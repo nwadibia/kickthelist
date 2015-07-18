@@ -1,0 +1,27 @@
+<% if user_signed_in? %>
+
+    <div class="center">
+    			<h1 class="home" style="font-weight: normal" >Ultimate List of Users</h1> <p> <br>
+      </div>
+  
+
+  <div class="center">  	
+    <table>  
+      <tr> 
+        <th> &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;
+        <th>User Name &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;</th>
+        <th>User ID &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;</th>
+        <th>Items listed &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;</th> 
+      </tr> 
+        <% @user.each do |user| %>
+          <tr> <br>
+              <td><%= link_to (image_tag user.image.url(:medium)), user %>&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;</td> 
+              <td><strong><%= user.name %></td>
+              <td><%= user.id %></strong></td>
+              <td><%= user.pins.count %> items listed</td>
+          </tr>		
+        <% end%>
+    </table>
+  </div>
+
+<% end %> 

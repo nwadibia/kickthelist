@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   get "myprofile" => "pins#myprofile"
   get "about" => "pages#about"
   resources :users
+  get "ultimate_user_list" => "users#ultimate_user_list"
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
