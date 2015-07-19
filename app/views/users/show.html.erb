@@ -1,45 +1,88 @@
 <body background="https://s3.amazonaws.com/kickthelist/media/images/CityScape.jpg">
 
-<% if user_signed_in? %>
+<% if @user == current_user %>
 
-	<div class="center">
-		<font color="white"><h2> Welcome to <%= @user.name%>'s list</h2></font>
-			</div> <br><br>     
-	    	 <div class="center">
- 		     		<%= image_tag @user.image.url(:medium) %> <br><br> 
-             <font color="white"><h4>
-             <%= @user.pins.count %> items listed
-	   		</div>
-	</div>
+  <div class="center">
+    <font color="white"><h2>Hi, <%= current_user.name %></h2></font>
+      </div> <br><br>     
+         <div class="center">
+            <%= image_tag current_user.image.url(:medium) %><p><br> 
+                <font color="white"><h4>
+                  <%= current_user.pins.count %> items listed 
+                </h4></font> <p>
+            <%= link_to "Add to your list", new_pin_path, class: "btn btn-success" %> &nbsp;&nbsp;&nbsp;
+            <%= link_to "Edit your profile", edit_user_registration_path, class: "btn btn-default" %> 
+            <br><br><p>
+            <%= link_to "Log out", destroy_user_session_path, method: :delete %>
+        </div>
+  </div>
+
+  <div class="row">
+  <div class="col-md-offset-2 col-md-8">
+      <div id="pins-center" class="left">
+                
+        <% @user.pins.each do |pin| %>
+          <div class="box panel panel-default">
+            <div class="panel-body">
+                <div class= "media">
+                    <div class="media-left">
+                        <%= image_tag pin.user.image.url(:medium) %> 
+                        <strong><%= pin.user.name if pin.user %></strong>
+                    </div>
+                         <div class="media-body media-middle", style="padding-left: 10px; font-size: 17px">
+                            <%= link_to pin.description, pin %>
+                            <!-- <% if pin.user == current_user%>
+                              <div class="actions">
+                                <%= link_to 'kick', edit_pin_path(pin)%> 
+                              </div>
+                            <% end %> -->
+                          </div>
+                </div>
+            </div>
+          </div>  
+      <% end %>
+      </div> 
+</div> 
+</div> 
+
 <% else %>
+    	<div class="center">
+    		<font color="white"><h2> Welcome to <%= @user.name%>'s list</h2></font>
+    			</div> <br><br>     
+    	    	 <div class="center">
+     		     		<%= image_tag @user.image.url(:medium) %> <br><br> 
+                 <font color="white"><h4>
+                 <%= @user.pins.count %> items listed
+    	   		</div>
+    	</div>
+
+    <div class="row">
+    <div class="col-md-offset-2 col-md-8">
+        <div id="pins-center" class="left">
+                  
+          <% @user.pins.each do |pin| %>
+            <div class="box panel panel-default">
+              <div class="panel-body">
+                    <div class= "media">
+                      <div class="media-left">
+                        <%= image_tag pin.user.image.url(:medium) if pin.user %>
+                        <strong><%= pin.user.name if pin.user %></strong>
+                      </div> 
+                        <div class="media-body media-middle", style="padding-left: 10px; font-size: 17px">
+                          <%= link_to pin.description, pin %>
+                          <!-- <% if pin.user == current_user%>
+                          <div class="actions">
+                            <%= link_to 'kick', edit_pin_path(pin)%> 
+                          </div>
+                        <% end %> -->
+                        </div>
+                    </div>
+              </div>
+            </div>  
+          <% end %>
+        </div> 
+    </div> 
+    </div> 
+
 <%end%>
 </body>
-
-
-<div class="row">
-<div class="col-md-offset-2 col-md-8">
-    <div id="pins-center" class="left">
-              
-      <% @user.pins.each do |pin| %>
-        <div class="box panel panel-default">
-          <div class="panel-body">
-                <div class= "media">
-                  <div class="media-left">
-                    <%= image_tag pin.user.image.url(:medium) if pin.user %>
-                    <strong><%= pin.user.name if pin.user %></strong>
-                  </div> 
-                    <div class="media-body media-middle", style="padding-left: 10px; font-size: 17px">
-                      <%= link_to pin.description, pin %>
-                      <!-- <% if pin.user == current_user%>
-                      <div class="actions">
-                        <%= link_to 'kick', edit_pin_path(pin)%> 
-                      </div>
-                    <% end %> -->
-                    </div>
-                </div>
-          </div>
-        </div>  
-      <% end %>
-    </div> 
-</div> 
-</div> 

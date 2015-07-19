@@ -24,7 +24,7 @@ class PinsController < ApplicationController
   # GET /pins/1
   # GET /pins/1.json
   def show
-    @pins = Pin.where("description like ?", "%#{@pin.description}%")
+    @pins = Pin.all.order("created_at DESC").where("description LIKE ?", "%#{@pin.description}%")
   end
 
   # GET /pins/new
