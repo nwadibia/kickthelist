@@ -10,7 +10,7 @@ class PinsController < ApplicationController
   end
 
   def mylist
-    @pins = current_user.pins.all.order("created_at DESC").paginate(:page => params[:page], :per_page =>20)
+    @pins = current_user.pins.all.order("created_at DESC").paginate(:page => params[:page], :per_page =>150)
   end
 
   def myprofile
@@ -18,7 +18,7 @@ class PinsController < ApplicationController
   end
 
   def discover
-    @pins = Pin.all.order("created_at DESC").paginate(:page => params[:page], :per_page =>20)
+    @pins = Pin.all.order("created_at DESC").paginate(:page => params[:page], :per_page =>150)
   end
   
   # GET /pins/1
