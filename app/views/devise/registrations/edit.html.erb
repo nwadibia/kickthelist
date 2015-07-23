@@ -1,7 +1,7 @@
 <div class="panel panel-default">
   <br><br><br><br><br><br>
   <div class="panel-heading">
-    <h2>Edit <%= resource_name.to_s.humanize %></h2>
+    <h2>Edit <%= resource_name.to_s.humanize %> Profile</h2>
   </div>
 
     <div class="panel-body">
@@ -13,25 +13,27 @@
         <%= f.text_field :name, autofocus: true, class: "form-control" %></div> <br>
 
         <div class="form-group">
-        <%= f.label :profile_picture %>
+        <%= f.label :uplaod_new_profile_picture %>
         <%= f.file_field :image, class: "form-control" %>
         </div>
 
-        <div class="form-group">
+        <!-- <div class="form-group">
         <div><%= f.label :change_email %><br />
-        <%= f.email_field :email, autofocus: true, class: "form-control" %></div> <br>
+        <%= f.email_field :email, autofocus: true, class: "form-control" %></div> <br> -->
 
         <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
           <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
         <% end %>
 
-        <div class="form-group">
-          <%= f.label :current_password %> <i>(enter password to confirm changes)</i><br />
-          <%= f.password_field :current_password, class: "form-control" %></div>
-
-          <div class="form-group">
+         <div class="form-group">
           <%= f.label :change_password %> <i>(leave blank to keep current password)</i><br />
           <%= f.password_field :password, :autocomplete => "off", class: "form-control" %></div>
+
+        <div class="form-group">
+          <%= f.label :current__current_password_to_confirm_changes %> <i><br/>
+          <%= f.password_field :current_password, class: "form-control" %></div>
+
+         
 
         <div class="form-group">
           <%= f.submit "Update", class: "btn btn-primary" %></div>

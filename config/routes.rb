@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   devise_for :users
   
 
-  root "pins#index"
+  root "pins#mylist"
   get "discover" => "pins#discover"
   get "mylist" => "pins#mylist"
   get "myprofile" => "pins#myprofile"
