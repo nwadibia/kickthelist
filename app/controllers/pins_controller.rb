@@ -20,6 +20,10 @@ class PinsController < ApplicationController
   def discover
     @pins = Pin.all.order("created_at DESC").paginate(:page => params[:page], :per_page =>150)
   end
+
+  def discoverkicked
+    @pins = Pin.all.order("created_at DESC").paginate(:page => params[:page], :per_page =>150)
+  end
   
   # GET /pins/1
   # GET /pins/1.json

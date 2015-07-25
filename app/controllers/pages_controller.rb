@@ -5,4 +5,6 @@ class PagesController < ApplicationController
   end
   def mylist
   end
+  def howitworks
+  end
 end

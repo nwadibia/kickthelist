@@ -1,12 +1,9 @@
 <body background="https://s3.amazonaws.com/kickthelist/media/images/CityScape.jpg">
-									<br><br><br><br><br>
+									<br><br><br><br>
 <div class="jumbotron center">
 	<h1>KickTheList</h1><br>
 	<p> Create your list of awesome things to do. Do them! Discover and repeat.</p></p><br>
-		<%= link_to "sign up", new_user_registration_path, class: "btn btn-success" %>
-
-
-<br>
+		<%= link_to "sign up", new_user_registration_path, class: "btn btn-success btn-lg" %>
 
 
 <div>
@@ -17,7 +14,7 @@
 					<%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
 					<%= devise_error_messages! %>
 				  
-
+					<br>
 				  <div class="form-group">
 				  	<!-- <%= f.label :email %> -->
 				  	<%= f.email_field :email, autofocus: true, class: "form-control", id:"exampleEmail3", placeholder:"Email Address" %> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;

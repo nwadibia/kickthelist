@@ -6,9 +6,11 @@ Rails.application.routes.draw do
 
   root "pins#mylist"
   get "discover" => "pins#discover"
+  get "discoverkicked" => "pins#discoverkicked"
   get "mylist" => "pins#mylist"
   get "myprofile" => "pins#myprofile"
   get "about" => "pages#about"
+  get "howitworks" => "pages#howitworks"
   resources :users
   get "ultimate_user_list" => "users#ultimate_user_list"
 
