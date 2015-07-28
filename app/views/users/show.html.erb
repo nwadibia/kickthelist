@@ -10,15 +10,16 @@
                 <font color="white"><h4>
                   <%= current_user.pins.count %> items listed 
                 </h4></font> <p>
-            <%= link_to "Add to your list", new_pin_path, class: "btn btn-success" %> &nbsp;&nbsp;&nbsp;
-            <%= link_to "Edit your profile", edit_user_registration_path, class: "btn btn-default" %> 
+            <%= link_to "+ Add to your list", new_pin_path, class: "btn btn-success" %> &nbsp;&nbsp;&nbsp;
+            <%= link_to "Discover", discover_path, class: "btn btn-primary" %> 
             <br><br><p>
-            <%= link_to "Log out", destroy_user_session_path, method: :delete %>
+            <%= link_to "edit profile", edit_user_registration_path %>
+            <!-- <%= link_to "Log out", destroy_user_session_path, method: :delete %> -->
         </div>
   </div>
 
   <div class="row">
-  <div class="col-md-offset-2 col-md-8">
+  <div class="col-md-offset-3 col-md-6">
       <div id="pins-center" class="left">
                 
         <% @user.pins.each do |pin| %>

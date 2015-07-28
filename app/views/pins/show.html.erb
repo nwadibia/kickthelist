@@ -3,32 +3,36 @@
 
 
 <div class="row">
-	<div class="col-md-offset-2 col-md-8">
-			
-		<div class="panel panel-primary">
-			<div class="panel-heading center">
-				<%= image_tag @pin.image.url(:medium) %>
-			</div>
-	 		<div class="panel-body", style="font-size: 17px"> 
-		 		<p><%= @pin.description %></p>
+	<div class="col-md-offset-3 col-md-6">
+		<div class="similar">	
+			<div class="panel panel-default">
+				<div class="panel-heading center">
+					<%= image_tag @pin.image.url(:medium) %>
+						<div class="panel-body left", style="font-size: 17px; padding-bottom: 0px"> 
+			 		<p><%= @pin.description %>
+			 			</div>
+			 			<div class="center">
+								<% if @pin.user == current_user %> 
+								<%= link_to 'kick', edit_pin_path(@pin)%> |
+								<% end %>  
 
-		  	<p><strong><%=link_to (@pin.user.name), @pin.user if @pin.user %></strong></p>
-			</div>
-			
-			<div class="center">
-				<% if @pin.user == current_user %> 
-				<%= link_to 'kick', edit_pin_path(@pin)%> |
-				<% end %>  
+								<% if @pin.user == current_user %> 
+								<%= link_to 'edit', edit_pin_path(@pin)%> |
+								<% end %> 
 
-				<% if @pin.user == current_user %> 
-				<%= link_to 'edit', edit_pin_path(@pin)%> |
-				<% end %> 
-
-				<% if @pin.user == current_user %>
-				<%= link_to 'delete', @pin, method: :delete, data: { confirm: 'Are you sure?' } %>
-				<% end %> <br> <br>
+								<% if @pin.user == current_user %>
+								<%= link_to 'delete', @pin, method: :delete, data: { confirm: 'Are you sure?' } %>
+								<% end %> <br> <br>
+							</div>
+				</div>
+		 		<div class="panel-body left", style="font-size: 12px"> 
+		 			<%=link_to (image_tag @pin.user.image.url(:thumb)), @pin.user if @pin.user %>
+			  	<p><strong><%=link_to (@pin.user.name), @pin.user if @pin.user %></strong></p>
+				</div>
+				
+				
+					</div>
 			</div>
-		</div>
 	</div>
 </div>
 

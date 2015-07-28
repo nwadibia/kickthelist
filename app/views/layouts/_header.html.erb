@@ -8,7 +8,11 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button> 
-      <%= link_to "KickTheList", root_path, class: "navbar-brand" %> <!--image_tag("https://s3.amazonaws.com/kickthelist/media/logo/KickTheListLogo.png", :size => "25x25") -->
+        <% if user_signed_in? %>
+        <%= link_to "KickTheList", discover_path, class: "navbar-brand" %> <!--image_tag("https://s3.amazonaws.com/kickthelist/media/logo/KickTheListLogo.png", :size => "25x25") -->
+        <% else %> 
+        <%= link_to "KickTheList", root_path, class: "navbar-brand" %>
+        <% end %>
 
     </div>
 
@@ -21,8 +25,8 @@
             <% if user_signed_in? %>
               <li><%= link_to "+", new_pin_path %>
               <li><%= link_to "My List", current_user%></li>
-             <li><%= link_to "Discover", discover_path %></li> 
-              <li><%= link_to "My Profile", myprofile_path %></li>
+              <li><%= link_to "Discover", discover_path %></li> 
+              <!-- <li><%= link_to "My Profile", myprofile_path %></li> -->
             <% else %>
             <!--<li><%= link_to new_pin_path do %>
               <span class="glyphicon glyphicon-plus"></span> List Soemthing

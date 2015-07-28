@@ -1,10 +1,12 @@
 Rails.application.routes.draw do
+  get "users/show"
+
   resources :pins
 
   devise_for :users
   
 
-  root "pins#mylist"
+  root :to => "pins#mylist"
   get "discover" => "pins#discover"
   get "discoverkicked" => "pins#discoverkicked"
   get "mylist" => "pins#mylist"
