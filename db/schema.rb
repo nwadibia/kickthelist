@@ -11,20 +11,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150715011200) do
+ActiveRecord::Schema.define(version: 20150729043733) do
 
-  create_table "pins", force: true do |t|
-    t.string   "description"
+  create_table "comments", force: true do |t|
+    t.string   "destription"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "user_id"
-    t.string   "image_file_name"
-    t.string   "image_content_type"
-    t.integer  "image_file_size"
-    t.datetime "image_updated_at"
+    t.integer  "pin_id"
   end
 
-  add_index "pins", ["user_id"], name: "index_pins_on_user_id"
+  add_index "comments", ["pin_id"], name: "index_comments_on_pin_id"
+  add_index "comments", ["user_id"], name: "index_comments_on_user_id"
+
+# Could not dump table "pins" because of following NoMethodError
+#   undefined method `[]' for nil:NilClass
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false
