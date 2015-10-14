@@ -47,8 +47,9 @@
 </div> 
 
 <% else %>
+      <br><br><br>
     	<div class="center">
-    		<font color="white"><h2> Welcome to <%= @user.name%>'s list</h2></font>
+    		<font color="white"><h2> <%= @user.name%></h2></font>
     			</div> <br><br>     
     	    	 <div class="center">
      		     		<%= image_tag @user.image.url(:medium) %> <br><br> 
