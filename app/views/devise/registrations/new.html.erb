@@ -11,25 +11,28 @@
 				  <%= devise_error_messages! %>
 
 				  <div class="form-group">
-			  	<%= f.label :email %>
-			  	<%= f.email_field :email, autofocus: true, class: "form-control" %></div>
-
-				  <div class="form-group">
-        	<%= f.label :user_name %>
+        	<%= f.label :pick_your_user_name %>
         	<%= f.text_field :name, class: "form-control" %>
       		</div>
 
 				  <div class="form-group">
-    			<%= f.label :profile_picture %>
+    			<%= f.label :upload_a_profile_picture %>
     			<%= f.file_field :image, class: "form-control" %>
   				</div>
 
-				  <div class="form-group">
-				  	<%= f.label :password %><br />
-				  	<%= f.password_field :password, class: "form-control" %></div>
+  				<div class="form-group">
+			  	<%= f.label :enter_your_email_address %>
+			  	<%= f.email_field :email, autofocus: true, class: "form-control" %>
+			  	</div>
 
 				  <div class="form-group">
-				  	<%= f.submit "Sign up", class: "btn btn-primary" %></div>
+				  	<%= f.label :enter_a_password %><br />
+				  	<%= f.password_field :password, class: "form-control" %>
+				  </div>
+
+				  <div class="form-group">
+				  	<%= f.submit "Sign up", class: "btn btn-primary" %>
+				  </div>
 				<% end %>
 
 				<div class="panel-footer">
