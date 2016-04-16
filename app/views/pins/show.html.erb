@@ -43,17 +43,18 @@
 		<div class="similar">	
 			<div class="panel panel-primary">
 				<div class="panel-heading center">
+
 					<%= image_tag @pin.image.url(:medium) if @pin.image? %>
 						<div class="panel-body left", style="font-size: 17px; padding-bottom: 0px"> 
 			 		<p><%= @pin.description %>
-			 			</div>
+			 			</div> <br> 
 				</div>
 
 				<div class="center">
-								<div class="fb-share-button" data-href="'+location.href+'" data-layout="icon_link" data-mobile-iframe="true"> </div> |
+								<div class="fb-share-button" data-href="'request.original_url" data-layout="icon_link" data-mobile-iframe="true"> </div> 
 
 								<% if @pin.user == current_user %> 
-								<%= link_to 'edit', edit_pin_path(@pin)%> 
+								<%= link_to '| edit', edit_pin_path(@pin)%> 
 								<% end %> 
 
 <script>
