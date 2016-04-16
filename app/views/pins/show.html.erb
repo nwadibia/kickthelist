@@ -1,31 +1,4 @@
 <br><br><br>
-<div id="fb-root"></div>
- <!-- facebook comments -->
- <script>(function(d, s, id) {
-  var js, fjs = d.getElementsByTagName(s)[0];
-  if (d.getElementById(id)) return;
-  js = d.createElement(s); js.id = id;
-  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.5";
-  fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));</script>
-
-<!-- meta tags for shareing -->
-<meta property="og:type"          content="website" />
-<meta property="og:title"         content="KickTheList" />
-<meta property="og:description"   content="Live out your list of awesome!" />
-<meta property="og:image"         content="'+location.href+'" />
-
-   <!-- facebook share --> 
-<div id="fb-root"></div>
-<script>(function(d, s, id) {
-  var js, fjs = d.getElementsByTagName(s)[0];
-  if (d.getElementById(id)) return;
-  js = d.createElement(s); js.id = id;
-  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.6";
-  fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));</script>
-
-
 <%= link_to 'Back to my list', current_user, class: "btn btn-default" %>
 <%= link_to "Discover", discover_path, class: "btn btn-primary" %> <br> <br>
 
@@ -50,7 +23,7 @@
 				</div>
 
 				<div class="center">
-								<div class="fb-share-button" data-href="'request.original_url" data-layout="icon_link" data-mobile-iframe="true"> </div> 
+								<div class="fb-share-button" data-href="http://kickthelist.com" data-layout="icon_link" data-mobile-iframe="true"> </div> 
 
 								<% if @pin.user == current_user %> 
 								<%= link_to '| edit', edit_pin_path(@pin)%> 
