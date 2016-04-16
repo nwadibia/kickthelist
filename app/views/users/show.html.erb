@@ -3,11 +3,11 @@
 <% if @user == current_user %>
 <br><br>
   <div class="center">
-    <font color="black"><h2>Hi, <%= current_user.name %></h2></font>
+    <font color="white"><h2>Hi, <%= current_user.name %></h2></font>
       </div> <br><br>     
          <div class="center">
             <%= image_tag current_user.image.url(:medium) %><p><br> 
-                <font color="black"><h4> you have 
+                <font color="white"><h4> you have 
                   <%= current_user.pins.count %> items listed 
                 </h4></font> <p>
             <%= link_to "+ Add to your list", new_pin_path, class: "btn btn-success" %> &nbsp;&nbsp;&nbsp;
