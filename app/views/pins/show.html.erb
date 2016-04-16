@@ -1,14 +1,12 @@
+<body background="https://s3.amazonaws.com/kickthelist/media/images/CityScape.jpg">
+
 <br><br><br>
-<%= link_to 'Back to my list', current_user, class: "btn btn-default" %>
-<%= link_to "Discover", discover_path, class: "btn btn-primary" %> <br> <br>
-
-
-
+<br> <br>
 <div class="col-md-offset-3 col-md-6">
-	<%=link_to (image_tag @pin.user.image.url(:thumb)), @pin.user if @pin.user %><p>
-	<strong>posted by <%=link_to (@pin.user.name), @pin.user if @pin.user %></strong>
+	<!-- <%=link_to (image_tag @pin.user.image.url(:thumb)), @pin.user if @pin.user %><p>-->
+	<strong><font color="white">posted by </font> <%=link_to (@pin.user.name), @pin.user if @pin.user %></strong>
 	
-</div> <br><br>
+</div> <br> <br>
 
 <div class="row">
 	<div class="col-md-offset-3 col-md-6">
@@ -19,19 +17,16 @@
 					<%= image_tag @pin.image.url(:medium) if @pin.image? %>
 						<div class="panel-body left", style="font-size: 17px; padding-bottom: 0px"> 
 			 		<p><%= @pin.description %>
-			 			</div> <br> 
+			 			</div> 
 				</div>
 
-				<div class="center">
+				<div class="center"> <br>
+								<%= link_to 'back |', :back %> &nbsp;
 								<div class="fb-share-button" data-href="http://kickthelist.com" data-layout="icon_link" data-mobile-iframe="true"> </div> 
-
+								&nbsp;
 								<% if @pin.user == current_user %> 
 								<%= link_to '| edit', edit_pin_path(@pin)%> 
-								<% end %> 
-
-<script>
-document.write('<div class="fb-comments" data-href="'+location.href+'" data-num-posts="6"></div>');
-</script>
+								<% end %> <br><br>
 </div>
 
 		 		  <!-- <div class="panel-body left", style="font-size: 14px"> 
@@ -69,15 +64,11 @@ document.write('<div class="fb-comments" data-href="'+location.href+'" data-num-
 
 
 
-<!-- !!!!!!      CODE FOR PEOPLE WHO ADDED SOMETHING SIMILAR     !!!!!
-
-	<div class="center">
-	<%= link_to "Add to your list", new_pin_path, class: "btn btn-success" %>
-</div> 
+    <!-- CODE FOR PEOPLE WHO ADDED SOMETHING SIMILAR     !!!!!
 
 
 <div class="center">
-<br> <br> <h4><font color="gray"> people who listed something similar </h4></font>
+<br> <h4><font color="white"> people who listed something similar </h4></font>
 </div> 
 
 <div class="row">
@@ -106,5 +97,4 @@ document.write('<div class="fb-comments" data-href="'+location.href+'" data-num-
 		</div>
 </div>
 </div>
-
 -->
