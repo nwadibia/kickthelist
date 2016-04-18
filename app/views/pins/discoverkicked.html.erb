@@ -8,7 +8,7 @@
 
       <br><br><br><br>
     <div class="center">
-        <font color="white"> <h3>What other people kicked</h3></font>
+        <font color="white"> <h3>Discover what others have kicked</h3></font>
         <%= link_to "Listed", discover_path, class: "btn btn-default" %>
         <%= link_to "Kicked", discoverkicked_path, class: "btn btn-primary active" %> <p>
          <br>
@@ -23,12 +23,13 @@
             <div class="panel panel-primary">
               <div class="panel-body">
                 <div class= "media">
-                  <div class="center">
+                  <strong><font color="black">by </font> <%=link_to (pin.user.name), pin.user if pin.user %></strong>
+                  <div class="center"> <br>
                       <%= image_tag pin.image.url(:medium) %>
                   </div> <br>
                   <div>
                     <div>
-                      <div style="font-size: 17px">
+                      <div style="font-size: 17px; margin-left: 3%">
                         <%= link_to pin.description, pin %> 
                       </div>
                             <!-- <% if pin.user == current_user%>
