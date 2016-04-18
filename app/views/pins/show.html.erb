@@ -16,18 +16,68 @@
 
 					<%= image_tag @pin.image.url(:medium) if @pin.image? %>
 						<div class="panel-body left", style="font-size: 17px; padding-bottom: 0px"> 
-			 		<p><%= @pin.description %>
+			 				<p><%= @pin.description %>
 			 			</div> 
+			 			<div class="left">
+			 				<%= link_to 'back |', :back %>
+			 			</div>
 				</div>
 
-				<div class="center"> <br>
+					<div style="
+				    margin-left: 0px auto;
+				    width: 200px;
+				    margin-right: 0px auto;">
+							<table class="table">
+								  <tboady>
+								    <tr>
+								      <td><%= link_to 'back', :back, class: "btn btn-default btn-sm", style: 'padding-bottom: 0px;
+	   										 padding-top: 2px' %>
+	   									</td>
+								      <td>
+								      	<a class="twitter-share-button"
+												href="https://twitter.com/intent/tweet?text=Just%20took%20the%20Kickthelist%20challenge">
+												Tweet</a>
+											</td>
+									      <td><div class="fb-share-button" data-href="http://kickthelist.com" data-layout="button" data-mobile-iframe="true"> </div> 
+								 				</div> 
+								 			</td>
+								 			<td>
+								 				<% if @pin.user == current_user %> 
+													<%= link_to 'edit', edit_pin_path(@pin), class: "btn btn-default btn-sm", style: 'padding-bottom: 0px;
+	    										padding-top: 2px'%> 
+												<% end %>
+											</td>
+								    </tr>
+	 							 </tbody>
+	 							</table>
+					
+						<script>
+							document.write('<div class="fb-comments" data-href="'+location.href+'" data-num-posts="6"></div>');
+						</script>
+
+					</div>
+
+							<!--
+							<div class="center"> <br>
+							<div class="center"> 
 								<%= link_to 'back |', :back %> &nbsp;
-								<div class="fb-share-button" data-href="http://kickthelist.com" data-layout="icon_link" data-mobile-iframe="true"> </div> 
-								&nbsp;
-								<% if @pin.user == current_user %> 
-								<%= link_to '| edit', edit_pin_path(@pin)%> 
-								<% end %> <br><br>
-</div>
+									<% if @pin.user == current_user %> 
+								<%= link_to 'edit |', edit_pin_path(@pin)%> 
+								<% end %> &nbsp;
+								<div>
+									<a class="twitter-share-button"
+										href="https://twitter.com/intent/tweet?text=Just%20took%20the%20Kickthelist%20challenge">
+										Tweet</a>
+								</div>
+								
+								<div>
+									<div class="fb-share-button" data-href="http://kickthelist.com" data-layout="button" data-mobile-iframe="true"> </div> 
+						 			</div> 
+						 		</div>
+					 <br><br> -->
+
+						
+				</div>
 
 		 		  <!-- <div class="panel-body left", style="font-size: 14px"> 
 		 			<%=link_to (image_tag @pin.user.image.url(:thumb)), @pin.user if @pin.user %>
