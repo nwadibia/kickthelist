@@ -1,5 +1,5 @@
 <br><br><br>
-<%= link_to 'Back', :back, class: "btn btn-default" %>
+<%= link_to 'Back', :back, class: "btn btn-default" , :"data-no-turbolink" => true %>
 
 <font color="white">
 <h4>Add a photo to kick this from your list!</h4>
@@ -7,8 +7,6 @@
 
 <%= render 'form' %>
 
-
-<%= link_to 'View', @pin %> |
 <%= link_to 'Delete', @pin, method: :delete, data: { confirm: 'Are you sure?' } %>
 
 <script>

@@ -46,13 +46,16 @@
 <% else %>
       <br><br><br>
     	<div class="center">
-    		<font color="white"><h2> <%= @user.name%></h2></font>
-    			</div> <br><br>     
+    		<font color="white"><h2> Welcome to <%= @user.name%>'s list</h2></font>
+    			</div> <br>    
     	    	 <div class="center">
+                <font color="white">
+                  <h4><%= @user.name%> has listed <strong><%= @user.pins.count %></strong> things <br><br>
      		     		<%= image_tag @user.image.url(:medium) %> <br><br> 
-                 <font color="white"><h4>
-                 <%= @user.pins.count %> items listed
-    	   		</div>
+    	   		</div> <br>
+                <div class="center">
+                  <%= link_to "Create your own list", new_user_registration_path, class: "btn btn-success btn-lg", style: "padding-right: 60px; padding-left: 60px" %>
+                </div> <br>
     	</div>
 
     <div class="row">
@@ -68,7 +71,7 @@
                         <strong><%= pin.user.name if pin.user %></strong>
                       </div> 
                         <div class="media-body media-middle", style="padding-left: 10px; font-size: 17px">
-                          <%= link_to pin.description, pin %>
+                          <%= link_to pin.description, pin, :"data-no-turbolink" => true %>
                           <!-- <% if pin.user == current_user%>
                           <div class="actions">
                             <%= link_to 'kick', edit_pin_path(pin)%> 
@@ -82,6 +85,10 @@
         </div> 
     </div> 
     </div> 
+
+              <div class="center">
+                  <%= link_to "Sign Up", new_user_registration_path, class: "btn btn-success btn-lg", style: "padding-right: 60px; padding-left: 60px" %>
+                </div> <br>
 
 <%end%>
 </body>
