@@ -8,12 +8,31 @@
                 <font color="white"><h4> you have 
                   <%= current_user.pins.count %> items listed 
                 </h4></font> <p>
-            <%= link_to "+ add to your list", new_pin_path, class: "btn btn-success" %> 
-            <br><p>
-            <%= link_to "edit profile", edit_user_registration_path %>
+            <!-- <%= link_to "+ add to your list", new_pin_path, class: "btn btn-success" %> -->
+            <br>
+            
             <!-- <%= link_to "Log out", destroy_user_session_path, method: :delete %> -->
         </div>
   </div>
+
+        <div class="center">
+          <div style="
+            margin-left: auto;
+            width: 50%;
+            margin-right: auto;">
+                <%= link_to '+add more', new_pin_path, class: "btn btn-success btn-sm", style: "
+                         padding-bottom: 0px;
+                         padding-top: 0px;
+                         margin-bottom: 10px;
+                         " %> &nbsp;&nbsp;
+                <div class="fb-share-button" data-href="#{request.protocol}#{request.host_with_port}#{request.fullpath}" data-layout="button" data-mobile-iframe="true" style="bottom: 5px;"> 
+                </div>   &nbsp;&nbsp;
+                 <a class="twitter-share-button"
+                href="https://twitter.com/intent/tweet?text=Just%20accepted%20the%20Kickthelist%20challenge.%20Check%20out%20my%20list:">
+                Tweet</a>
+          </div>
+          <br><%= link_to "edit profile", edit_user_registration_path %>
+        </div>
 
   <div class="row">
   <div class="col-md-offset-3 col-md-6">
@@ -53,10 +72,31 @@
                   <h4><%= @user.name%> has listed <strong><%= @user.pins.count %></strong> things <br><br>
      		     		<%= image_tag @user.image.url(:medium) %> <br><br> 
     	   		</div> <br>
+
+            <div class="center">
+          <div style="
+            margin-left: auto;
+            width: 50%;
+            margin-right: auto;">
+                <div class="fb-share-button" data-href="#{request.protocol}#{request.host_with_port}#{request.fullpath}" data-layout="button" data-mobile-iframe="true" style="bottom: 5px;">
+                </div> &nbsp;&nbsp;
+                <a class="twitter-share-button"
+                href="https://twitter.com/intent/tweet?text=Just%20accepted%20the%20Kickthelist%20challenge.%20Check%20out%20my%20list:">
+                Tweet</a> 
+          </div>
+        </div>
+        <br>
+
+              <% if user_signed_in? %>
+        
+                    <% else %>
                 <div class="center">
                   <%= link_to "Create your own list", new_user_registration_path, class: "btn btn-success btn-lg", style: "padding-right: 60px; padding-left: 60px" %>
-                </div> <br>
+                </div> 
+              <%end%>
     	</div>
+
+      <br>
 
     <div class="row">
     <div class="col-md-offset-2 col-md-8">
@@ -85,10 +125,7 @@
         </div> 
     </div> 
     </div> 
-
-              <div class="center">
-                  <%= link_to "Sign Up", new_user_registration_path, class: "btn btn-success btn-lg", style: "padding-right: 60px; padding-left: 60px" %>
-                </div> <br>
+<br>
 
 <%end%>
 </body>

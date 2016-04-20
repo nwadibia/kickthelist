@@ -6,7 +6,27 @@
 		<p> 2. Share your list and challenge friends 
 		<p> 3. Achieve your goals and repeat! </p></p><br>-->
 		<%= link_to "Accept", new_user_registration_path, class: "btn btn-success btn-lg", style: "padding-right: 60px; padding-left: 60px" %> <br>
-		<p><h6> <%= link_to "learn more", howitworks_path %> </h6>
+<br>
+
+
+			<div class="center">
+          <div style="
+            margin-left: auto;
+            width: 50%;
+            margin-right: auto;">
+                <div class="fb-share-button" data-href="#{request.protocol}#{request.host_with_port}#{request.fullpath}" data-layout="button" data-mobile-iframe="true" style="bottom: 5px;"> 
+                </div>   &nbsp;&nbsp;
+                 <a class="twitter-share-button"
+                href="https://twitter.com/intent/tweet?text=Just%20accepted%20the%20Kickthelist%20challenge.%20Check%20out%20my%20list:">
+                Tweet</a>
+          </div>
+			</div>
+
+			<br>
+
+<div class="center">
+	<div class="fb-like" data-href="https://www.facebook.com/KickTheList/" data-layout="standard" data-action="like" data-show-faces="true"></div>
+</div>
 
 
 <div>
