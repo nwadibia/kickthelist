@@ -1,6 +1,4 @@
-<body background="https://s3.amazonaws.com/kickthelist/media/images/CityScape.jpg">
-    
-  <font color="white">
+ <font color="white">
     <%= form_for @pin, html: { multipart: true } do |f| %>
       <% if @pin.errors.any? %>
         <div id="error_explanation">
@@ -17,18 +15,17 @@
         <div class="form">
           <div class="form-group">
               <!-- <%= f.label :add_to_your_list %> -->
-              <%= f.text_field :description, autofocus: true, class: "form-control", id:"exampleInputText3", placeholder:"Example: Travel across all 7 continents" %>
+              <%= f.text_field :description, autofocus: true, class: "form-control", id:"exampleInputText3", placeholder:"Example: Travel to a new city" %>
             </div>
 
            <div class="form-group">
-              <%= f.label :Upload_photo_after_you_complete_it %>
+              <%= f.label :Upload_photo_once_complete_it %>
               <%= f.file_field :image, class: "form-control" %>
             </div> <br><br>
 
             <div class="form-group">
-              <%= f.submit class: "btn btn-primary" %>
+              <%= f.submit "Submit", class: "btn btn-primary" %>
             </div>
           <% end %>
         </div>
   </font>
-</body>

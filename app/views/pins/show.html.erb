@@ -30,29 +30,29 @@
 								      <td><%= link_to 'back', :back, class: "btn btn-default btn-sm", style: 'padding-bottom: 0px;
 	   										 padding-top: 2px' %>
 	   									</td>
+	   									<td>
+								 				<% if @pin.user == current_user %> 
+													<%= link_to 'kick/edit', edit_pin_path(@pin), class: "btn btn-default btn-sm", style: 'padding-bottom: 0px;
+	    										padding-top: 2px'%> 
+												<% end %>
+											</td>
 								      <td>
 								      	<a class="twitter-share-button"
-												href="https://twitter.com/intent/tweet?text=Just%20accepted%20the%20#Kickthelist%20challenge:">
+												href="https://twitter.com/intent/tweet?text=Just%20accepted%20the%20Kickthelist%20challenge:">
 												Tweet</a>
 											</td>
 									      <td><div class="fb-share-button" data-href="http://kickthelist.com" data-layout="button" data-mobile-iframe="true"> </div> 
 								 				</div> 
 								 			</td>
-								 			<td>
-								 				<% if @pin.user == current_user %> 
-													<%= link_to 'edit', edit_pin_path(@pin), class: "btn btn-default btn-sm", style: 'padding-bottom: 0px;
-	    										padding-top: 2px'%> 
-												<% end %>
-											</td>
 								    </tr>
 	 							 </tbody>
 	 							</table>
 					</div>
 
 					
-						<!--<script>
+						<script>
 							document.write('<div class="fb-comments" data-href="'+location.href+'" data-num-posts="6"></div>');
-						</script> -->
+						</script> 
 				</div>
 
 		 		  <!-- <div class="panel-body left", style="font-size: 14px"> 

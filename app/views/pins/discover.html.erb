@@ -27,7 +27,7 @@
                     <strong><%= pin.user.name if pin.user %></strong>
                   </div> 
                     <div class="media-body media-middle", style="padding-left: 15px; font-size: 17px">
-                      <%= link_to pin.description, pin %>
+                      <%= link_to pin.description, pin, :"data-no-turbolink" => true %>
                       <!-- <% if pin.user == current_user%>
                       <div class="actions">
                         <%= link_to 'kick', edit_pin_path(pin)%> 
