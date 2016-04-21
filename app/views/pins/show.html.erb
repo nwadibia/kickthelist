@@ -13,16 +13,16 @@
 		<div class="similar">	
 			<div class="panel panel-primary">
 				<div class="panel-heading center">
-
+					<div class="panel-body left", style="font-size: 17px; padding-bottom: 0px"> 
+			 				<%= @pin.description %>
+			 			</div> <br>
 					<%= image_tag @pin.image.url(:medium) if @pin.image? %>
-						<div class="panel-body left", style="font-size: 17px; padding-bottom: 0px"> 
-			 				<p><%= @pin.description %>
-			 			</div> 
+						
 				</div>
 
 					<div style="
 				    margin-left: auto;
-				    width: 40%;
+				    width: 60%;
 				    margin-right: auto;">
 							<table class="table">
 								  <tboady>
