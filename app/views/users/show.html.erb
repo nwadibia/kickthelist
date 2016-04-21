@@ -47,7 +47,11 @@
                         <strong><%= pin.user.name if pin.user %></strong>
                     </div>
                          <div class="media-body media-middle", style="padding-left: 10px; font-size: 17px">
-                            <%= link_to pin.description, pin, :"data-no-turbolink" => true %>
+                            <%= link_to pin.description, pin, :"data-no-turbolink" => true %> <p>
+                            <div class="pull-right">
+                            <%= image_tag pin.image.url(:medium), style:"
+                                  width: 20px;" if pin.image?%>
+                          </div>
                             <!-- <% if pin.user == current_user%>
                               <div class="actions">
                                 <%= link_to 'kick', edit_pin_path(pin)%> 
@@ -112,6 +116,11 @@
                       </div> 
                         <div class="media-body media-middle", style="padding-left: 10px; font-size: 17px">
                           <%= link_to pin.description, pin, :"data-no-turbolink" => true %>
+                          <p>
+                            <div class="pull-right">
+                            <%= image_tag pin.image.url(:medium), style:"
+                                  width: 20px;" if pin.image?%>
+                          </div>
                           <!-- <% if pin.user == current_user%>
                           <div class="actions">
                             <%= link_to 'kick', edit_pin_path(pin)%> 
