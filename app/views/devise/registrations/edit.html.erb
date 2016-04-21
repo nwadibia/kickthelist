@@ -40,7 +40,7 @@
       <% end %>
 
       
-      <%= link_to "Back", :back %> <br><br>
+      <%= link_to "Back", :back, :"data-no-turbolink" => true %> <br><br>
       <%= link_to "Log out", destroy_user_session_path, method: :delete %>
     </div>
   </div>

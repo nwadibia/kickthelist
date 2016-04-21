@@ -9,12 +9,13 @@
                   <%= current_user.pins.count %> items listed 
                 </h4></font> <p>
             <!-- <%= link_to "+ add to your list", new_pin_path, class: "btn btn-success" %> -->
-            <br>
+            
             
             <!-- <%= link_to "Log out", destroy_user_session_path, method: :delete %> -->
         </div>
   </div>
 
+      <!-- old share icons 
         <div class="center">
           <div style="
             margin-left: auto;
@@ -30,8 +31,32 @@
                  <a class="twitter-share-button"
                 href="https://twitter.com/intent/tweet?text=Just%20accepted%20the%20Kickthelist%20challenge.%20Check%20out%20my%20list:">
                 Tweet</a>
+          </div> -->
+
+        <div style="
+            margin-left: auto;
+            width: 20%;
+            margin-right: auto;">
+              <table class="table"> 
+                  <tboady>
+                    <tr>
+                      <td><%= link_to '+add more', new_pin_path, class: "btn btn-success btn-sm", style: 'padding-bottom: 0px;
+                         padding-top: 2px' %>
+                      </td>
+                      <td><div class="fb-share-button" data-href="#{request.protocol}#{request.host_with_port}#{request.fullpath}" data-layout="button" data-mobile-iframe="true"> </div>  
+                      </td>
+                      <td>
+                        <a class="twitter-share-button"
+                        href="https://twitter.com/intent/tweet?text=Just%20accepted%20the%20Kickthelist%20challenge:">
+                        Tweet</a>
+                      </td>
+                    </tr>
+                 </tbody>
+                </table>
           </div>
-          <br><%= link_to "edit profile", edit_user_registration_path %>
+          <p>
+        <div class="center">
+          <%= link_to "edit profile", edit_user_registration_path %>
         </div>
 
   <div class="row">
@@ -80,13 +105,24 @@
             <div class="center">
           <div style="
             margin-left: auto;
-            width: 50%;
+            width: 20%;
             margin-right: auto;">
-                <div class="fb-share-button" data-href="#{request.protocol}#{request.host_with_port}#{request.fullpath}" data-layout="button" data-mobile-iframe="true" style="bottom: 5px;">
-                </div> &nbsp;&nbsp;
-                <a class="twitter-share-button"
-                href="https://twitter.com/intent/tweet?text=Just%20accepted%20the%20Kickthelist%20challenge.%20Check%20out%20my%20list:">
-                Tweet</a> 
+              <table class="table"> 
+                  <tboady>
+                    <tr>
+                      <td><%= link_to '+add more', new_pin_path, class: "btn btn-success btn-sm", style: 'padding-bottom: 0px;
+                         padding-top: 2px' %>
+                      </td>
+                      <td><div class="fb-share-button" data-href="#{request.protocol}#{request.host_with_port}#{request.fullpath}" data-layout="button" data-mobile-iframe="true"> </div>  
+                      </td>
+                      <td>
+                        <a class="twitter-share-button"
+                        href="https://twitter.com/intent/tweet?text=Just%20accepted%20the%20Kickthelist%20challenge:">
+                        Tweet</a>
+                      </td>
+                    </tr>
+                 </tbody>
+                </table>
           </div>
         </div>
         <br>
