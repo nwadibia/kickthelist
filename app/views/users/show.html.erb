@@ -33,16 +33,21 @@
                 Tweet</a>
           </div> -->
 
+          <div class="center">
+            <%= link_to '+add more', new_pin_path, class: "btn btn-success"%>
+          </div> <br>
+
+
         <div style="
             margin-left: auto;
-            width: 15%;
+            width: 20%;
             margin-right: auto;">
               <table class="table"> 
                   <tboady>
                     <tr>
-                      <td><%= link_to '+add more', new_pin_path, class: "btn btn-success btn-sm", style: 'padding-bottom: 0px;
+                      <!--<td><%= link_to '+add more', new_pin_path, class: "btn btn-success btn-sm", style: 'padding-bottom: 0px;
                          padding-top: 2px' %>
-                      </td>
+                      </td> -->
                       <td><div class="fb-share-button" data-href="#{request.protocol}#{request.host_with_port}#{request.fullpath}" data-layout="button" data-mobile-iframe="true"> </div>  
                       </td>
                       <td>
