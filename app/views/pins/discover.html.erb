@@ -22,7 +22,7 @@
         <div class="panel panel-primary"> <!-- changed from box panel and added row class atop -->
           <div class="panel-body">
                 <div class= "media">
-                  <div class="media-left">
+                  <div class="media-left", style="width: 75px;",>
                     <%=link_to (image_tag pin.user.image.url(:medium)), pin.user, :"data-no-turbolink" => true if pin.user %> <br>
                     <strong><%= pin.user.name if pin.user %></strong>
                   </div> 
