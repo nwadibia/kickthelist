@@ -9,6 +9,23 @@
           <p><h3>#KickTheList</h3></font><p>
         <%= link_to "Add to the list", new_pin_path, class: "btn btn-success" %> <br><br>
     </div>
+
+    <div class="center">
+          <div style="
+            margin-left: auto;
+            width: 50%;
+            margin-right: auto;">
+                <%= link_to '+add more', new_pin_path, class: "btn btn-success btn-lg", style: "
+                         padding-bottom: 0px;
+                         padding-top: 0px;
+                         margin-bottom: 10px;
+                         " %> &nbsp;&nbsp; <p>
+                <div class="fb-share-button" data-href="#{request.protocol}#{request.host_with_port}#{request.fullpath}" data-layout="button" data-mobile-iframe="true" style="bottom: 5px;"> 
+                </div>   &nbsp;&nbsp;
+                 <a class="twitter-share-button"
+                href="https://twitter.com/intent/tweet?text=Just%20accepted%20the%20Kickthelist%20challenge.%20Check%20out%20my%20list:">
+                Tweet</a>
+          </div> 
         
 <div class="row">
   <div class="col-md-offset-2 col-md-8">

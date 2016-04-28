@@ -27,7 +27,8 @@
                     <strong><%= pin.user.name if pin.user %></strong>
                   </div> 
                     <div class="media-body media-middle", style="padding-left: 15px; font-size: 17px">
-                      <%= link_to pin.description, pin, :"data-no-turbolink" => true %>
+                      <%= link_to pin.description, pin, :"data-no-turbolink" => true unless pin.image?%>
+                      <s><%= link_to pin.description, pin, :"data-no-turbolink" => true if pin.image?%></s>
                       <p>
                             <div class="pull-right">
                             <%= image_tag pin.image.url(:medium), style:"
