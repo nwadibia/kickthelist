@@ -1,46 +1,39 @@
+<body background="https://s3.amazonaws.com/kickthelist/media/images/CityScape.jpg">
+
+
 <%= render 'pages/home' unless user_signed_in? %>
 
 
 <% if user_signed_in? %>
 
+<br><br><br><br>
     <div class="center">
-        <font color="white"><h2> Discover</h2>
-        <p> Discover what others have listed. Re-list the things you want to do! 
-          <p><h3>#KickTheList</h3></font><p>
-        <%= link_to "Add to the list", new_pin_path, class: "btn btn-success" %> <br><br>
+        <font color="white"> <h3>Discover what others have listed</font></h3>
+        <%= link_to "Listed", discover_path, class: "btn btn-default active" %>
+        <%= link_to "Kicked", discoverkicked_path, class: "btn btn-primary" %> <p>
+         <br>
     </div>
-
-    <div class="center">
-          <div style="
-            margin-left: auto;
-            width: 50%;
-            margin-right: auto;">
-                <%= link_to '+add more', new_pin_path, class: "btn btn-success btn-lg", style: "
-                         padding-bottom: 0px;
-                         padding-top: 0px;
-                         margin-bottom: 10px;
-                         " %> &nbsp;&nbsp; <p>
-                <div class="fb-share-button" data-href="#{request.protocol}#{request.host_with_port}#{request.fullpath}" data-layout="button" data-mobile-iframe="true" style="bottom: 5px;"> 
-                </div>   &nbsp;&nbsp;
-                 <a class="twitter-share-button"
-                href="https://twitter.com/intent/tweet?text=Just%20accepted%20the%20Kickthelist%20challenge.%20Check%20out%20my%20list:">
-                Tweet</a>
-          </div> 
         
 <div class="row">
-  <div class="col-md-offset-2 col-md-8">
+  <div class="col-md-offset-3 col-md-6">
 <div id="pins-center" class="left">
 
       <% @pins.each do |pin| %>
         <div class="panel panel-primary"> <!-- changed from box panel and added row class atop -->
           <div class="panel-body">
                 <div class= "media">
-                  <div class="media-left">
-                    <%=link_to (image_tag pin.user.image.url(:medium)), pin.user if pin.user %> <br>
+                  <div class="media-left", style="width: 75px;",>
+                    <%=link_to (image_tag pin.user.image.url(:medium)), pin.user, :"data-no-turbolink" => true if pin.user %> <br>
                     <strong><%= pin.user.name if pin.user %></strong>
                   </div> 
                     <div class="media-body media-middle", style="padding-left: 15px; font-size: 17px">
-                      <%= link_to pin.description, pin, :"data-no-turbolink" => true %>
+                      <%= link_to pin.description, pin, :"data-no-turbolink" => true unless pin.image?%>
+                      <s><%= link_to pin.description, pin, :"data-no-turbolink" => true if pin.image?%></s>
+                      <p>
+                            <div class="pull-right">
+                            <%= image_tag pin.image.url(:medium), style:"
+                                  width: 30px;" if pin.image?%>
+                          </div>
                       <!-- <% if pin.user == current_user%>
                       <div class="actions">
                         <%= link_to 'kick', edit_pin_path(pin)%> 
@@ -61,6 +54,7 @@
    <%= will_paginate @pins, renderer: BootstrapPagination::Rails %>
 </div>
 </body>
+
 
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
