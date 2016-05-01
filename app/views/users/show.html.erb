@@ -1,21 +1,60 @@
 <% if @user == current_user %>
 <br><br>
   <div class="center">
-    <font color="white"><h2>Hi, <%= current_user.name %></h2></font>
-      </div> <br> 
-         <div class="center">
-            <%= image_tag current_user.image.url(:medium) %><p><br> 
-                <font color="white"><h4> you have 
-                  <%= current_user.pins.count %> items listed 
+    
+  </div> <br> 
+      
 
-                  
-                </h4></font> <p>
-            <!-- <%= link_to "+ add to your list", new_pin_path, class: "btn btn-success" %> -->
-            
-            
-            <!-- <%= link_to "Log out", destroy_user_session_path, method: :delete %> -->
+        <div class="center">
+          <div style="
+            margin-left: auto;
+            width: 20%;
+            margin-right: auto;">
+            <table class="table table-bordered" style= "width: 250px;">
+                  <tboady>
+                    <tr>
+                      
+                      <td class="center" colspan="3">
+                        <%= image_tag current_user.image.url(:medium) %><p>
+                        <font color="white"><h2><%= current_user.name %></h2></font>
+                                            <p>
+                            <div class="center">
+                              <%= link_to "edit profile", edit_user_registration_path %>
+                            </div> 
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="center">
+                        <font color="white"><h4> listed <br>
+                          <div class="center">
+                            <font color="white"><h4>
+                            <%= current_user.pins.count %> </font>
+                          </div>
+                      </td> 
+                      <td class="center">
+                        <font color="white"><h4> kicked <br>
+                          <div class="center">
+                            <font color="white"><h4>
+                            <%= current_user.pins.count(:image_file_name) %> </font>
+                          </div>
+                      </td>
+                    </tr>
+                    <tr>
+                        <td class="center" colspan="3">
+                          <div class="center">
+                            <font color="white"><h4>
+                          <%= link_to '+add more', new_pin_path, class: "btn btn-success btn-md" %> <!--, style: "
+                         padding-bottom: 0px;
+                         padding-top: 0px;
+                         margin-bottom: 10px;
+                         " %> &nbsp;&nbsp; <p> -->
+                        </div>
+                      </td>
+                    </tr>
+                 </tbody>
+                </table>
+           </div>
         </div>
-  </div> <br>
 
     
         <div class="center">
@@ -23,11 +62,6 @@
             margin-left: auto;
             width: 50%;
             margin-right: auto;">
-                <%= link_to '+add more', new_pin_path, class: "btn btn-success btn-lg", style: "
-                         padding-bottom: 0px;
-                         padding-top: 0px;
-                         margin-bottom: 10px;
-                         " %> &nbsp;&nbsp; <p>
                 <div class="fb-share-button" data-href="#{request.protocol}#{request.host_with_port}#{request.fullpath}" data-layout="button" data-mobile-iframe="true" style="bottom: 5px;"> 
                 </div>   &nbsp;&nbsp;
                  <a class="twitter-share-button"
@@ -63,11 +97,8 @@
                 </table>
           </div>
       </div> -->
-          <p>
-        <div class="center">
-          <%= link_to "edit profile", edit_user_registration_path %>
-        </div> 
 
+<br><br>
   <div class="row">
   <div class="col-md-offset-3 col-md-6">
       <div id="pins-center" class="left">
@@ -104,8 +135,81 @@
 </div> 
 </div> 
 
+
+
 <% else %>
-      <br><br><br>
+
+ <br><br><br>
+
+ <div class="center">
+          <div style="
+            margin-left: auto;
+            width: 20%;
+            margin-right: auto;">
+            <table class="table table-bordered" style= "width: 250px;">
+                  <tboady>
+                    <tr>
+                      
+                      <td class="center" colspan="3">
+                        <%= image_tag @user.image.url(:medium) %> <p>
+                        <font color="white"><h2><%= @user.name%> </h2></font>
+                                            <p>
+                            <div class="center">
+                              <%= link_to "edit profile", edit_user_registration_path %>
+                            </div> 
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="center">
+                        <font color="white"><h4> listed <br>
+                          <div class="center">
+                            <font color="white"><h4>
+                            <%= @user.pins.count %> </font>
+                          </div>
+                      </td> 
+                      <td class="center">
+                        <font color="white"><h4> kicked <br>
+                          <div class="center">
+                            <font color="white"><h4>
+                            <%= @user.pins.count(:image_file_name) %> </font>
+                          </div>
+                      </td>
+                    </tr>
+                    
+                     <% if user_signed_in? %>
+        
+                                            <% else %>
+                      <tr>
+                        <td class="center" colspan="3">
+                          <div class="center">
+                            <font color="white"><h4>
+                                     
+                                            <div class="center">
+                                             <%= link_to "Sign Up", new_user_registration_path, class: "btn btn-success btn-lg", style: "padding-right: 60px; padding-left: 60px" %>
+                                        </div> 
+                                      <%end%>
+                        </div>
+                      </td>
+                    </tr>
+                 </tbody>
+                </table>
+           </div>
+        </div>
+
+   <div class="center">
+          <div style="
+            margin-left: auto;
+            width: 50%;
+            margin-right: auto;">
+                <div class="fb-share-button" data-href="#{request.protocol}#{request.host_with_port}#{request.fullpath}" data-layout="button" data-mobile-iframe="true" style="bottom: 5px;"> 
+                </div>   &nbsp;&nbsp;
+                 <a class="twitter-share-button"
+                href="https://twitter.com/intent/tweet?text=Just%20accepted%20the%20Kickthelist%20challenge.%20Check%20out%20my%20list:">
+                Tweet</a>
+          </div> 
+
+
+<!--
     	<div class="center">
     		<font color="white"><h2> Welcome to <%= @user.name%>'s list</h2></font>
     			</div> <br>    
@@ -122,10 +226,10 @@
             margin-right: auto;">
               <table class="table"> 
                   <tboady>
-                    <!--<tr>
+                      <tr>
                        <td><%= link_to '+add more', new_pin_path, class: "btn btn-success btn-sm", style: 'padding-bottom: 0px;
                          padding-top: 2px' %>
-                      </td>-->
+                      </td>
                       <td><div class="fb-share-button" data-href="#{request.protocol}#{request.host_with_port}#{request.fullpath}" data-layout="button" data-mobile-iframe="true"> </div>  
                       </td>
                       <td>
@@ -137,14 +241,14 @@
                  </tbody>
                 </table>
           </div>
-        </div>
+        </div> -->
         <br>
 
               <% if user_signed_in? %>
         
                     <% else %>
-                <div class="center">
-                  <%= link_to "Create your own list", new_user_registration_path, class: "btn btn-success btn-lg", style: "padding-right: 60px; padding-left: 60px" %>
+                    <div class="center">
+                     <%= link_to "Create your own list", new_user_registration_path, class: "btn btn-success btn-lg", style: "padding-right: 60px; padding-left: 60px" %>
                 </div> 
               <%end%>
     	</div>
