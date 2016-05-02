@@ -250,10 +250,10 @@
                         <%= image_tag pin.user.image.url(:medium) if pin.user %>
                         <strong><%= pin.user.name if pin.user %></strong>
                       </div> 
-                        <div class="media-body media-middle", style="padding-left: 10px; font-size: 17px">
+                        <div class="media-body media-middle", style="padding-left: 15px; font-size: 17px">
                             <%= link_to pin.description, pin, :"data-no-turbolink" => true unless pin.image? %> <p>
 
-                                  <div class="media-body media-middle", style="padding-left: 10px; font-size: 17px"> <s>
+                                  <div class="media-body media-middle", style="padding-left: 15px; font-size: 17px"> <s>
                                   <%= link_to pin.description, pin, :"data-no-turbolink" => true if pin.image? %> </s>
                                   </div>
                           <p>
