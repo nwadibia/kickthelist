@@ -4,20 +4,25 @@
 <br> <br>
 <div class="col-md-offset-3 col-md-6">
 	<!-- <%=link_to (image_tag @pin.user.image.url(:thumb)), @pin.user if @pin.user %><p>-->
-	<strong><font color="white">by </font> <%=link_to (@pin.user.name), @pin.user, :"data-no-turbolink" => true  if @pin.user %></strong>
 	
-</div> <br> <br>
+</div> <br> 
 
 <div class="row">
 	<div class="col-md-offset-3 col-md-6">
 		<div class="similar">	
-			<div class="panel panel-primary">
+			<div class="panel panel-default">
 				<div class="panel-heading center">
-					<div class="panel-body left", style="font-size: 20px; padding-bottom: 0px"> 
-			 				<%= @pin.description %>
-			 			</div> <br>
+							<div align="left">
+								<strong><font color="black">by </font> <%=link_to (@pin.user.name), @pin.user, :"data-no-turbolink" => true  if @pin.user %></strong>
+							</div> <br>
+					
 					<%= image_tag @pin.image.url(:medium) if @pin.image? %>
 					<br><br>	
+
+						<div class="panel-body left", style="font-size: 20px; padding-bottom: 0px"> 
+			 				<s><%= @pin.description %></s>
+			 			</div> <br>
+
 				</div>
 
 					<div style="
