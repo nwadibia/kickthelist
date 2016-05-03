@@ -21,8 +21,8 @@
 
 						<div class="panel-body left", style="font-size: 20px; padding-bottom: 0px"> 
 			 				
-			 				<%= @pin.description unless pin.image? %>
-			 				<s><%= @pin.description if pin.image? %></s>
+			 				<%= @pin.description unless @pin.image? %>
+			 				<s><%= @pin.description if @pin.image? %></s>
 			 			</div> <br>
 
 				</div>
