@@ -15,18 +15,19 @@
     </div>
         
 <div class="row">
-  <div class="col-md-offset-3 col-md-6">
+  <div class="col-md-offset-4 col-md-4">
 <div id="pins-center" class="left">
 
       <% @pins.each do |pin| %>
+       <% unless pin.image? %>
         <div class="panel panel-primary"> <!-- changed from box panel and added row class atop -->
           <div class="panel-body">
                 <div class= "media">
                   <div class="media-left", style="width: 75px;",>
+                    <strong><%=link_to (pin.user.name), pin.user if pin.user %></strong>
                     <%=link_to (image_tag pin.user.image.url(:medium)), pin.user, :"data-no-turbolink" => true if pin.user %> <br>
-                    <strong><%= pin.user.name if pin.user %></strong>
                   </div> 
-                    <div class="media-body media-middle", style="padding-left: 15px; font-size: 17px">
+                    <div class="media-body media-middle", style="padding-left: 15px; font-size: 17px;" align="center">
                       <%= link_to pin.description, pin, :"data-no-turbolink" => true unless pin.image?%>
                       <s><%= link_to pin.description, pin, :"data-no-turbolink" => true if pin.image?%></s>
                       <p>
@@ -43,6 +44,7 @@
                 </div>
           </div>
         </div>  
+      <% end %>
       <% end %>
 </div> 
 </div>
