@@ -1,4 +1,4 @@
-<body background="https://s3.amazonaws.com/kickthelist/media/images/CityScape.jpg">
+
 
 
 <%= render 'pages/home' unless user_signed_in? %>
@@ -7,6 +7,9 @@
 <% if user_signed_in? %>
 
 <br><br><br><br>
+
+
+
     <div class="center">
         <font color="white"> <h3>Discover what others have listed</font></h3>
         <%= link_to "Listed", discover_path, class: "btn btn-default active" %>
@@ -20,7 +23,7 @@
 
       <% @pins.each do |pin| %>
        <% unless pin.image? %>
-        <div class="panel panel-primary"> <!-- changed from box panel and added row class atop -->
+        <div class="panel panel-primary"> <%# changed from box panel and added row class atop %>
           <div class="panel-body">
                 <div class= "media">
                   <div class="media-left", style="width: 75px;",>

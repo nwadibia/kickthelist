@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   devise_for :users
   
 
-  root :to => "pins#discover"
+  root :to => "pins#new"
   get "discover" => "pins#discover"
   get "discoverkicked" => "pins#discoverkicked"
   get "mylist" => "pins#mylist"
