@@ -5,7 +5,7 @@
     			<h1 class="home" style="font-weight: normal" >Ultimate List of Users</h1> <p> <br>
       </div>
   
-  <%= @user.count %> 
+  Total Users: <%= @user.count %> 
 
   <div class="center">  	
     <table>  
@@ -21,6 +21,7 @@
               <td><strong><%= user.name %></td>
               <td><%= user.id %></strong></td>
               <td><%= user.pins.count %> items listed</td>
+              <td><%= user.email %> </td>
           </tr>		
         <% end%>
     </table>
