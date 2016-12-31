@@ -14,11 +14,12 @@
         <th>User Name &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;</th>
         <th>User ID &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;</th>
         <th>Items listed &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;</th> 
+        <th>Email &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; </th>
       </tr> 
         <% @user.each do |user| %>
           <tr> <br>
               <td><%= link_to (image_tag user.image.url(:medium)), user %>&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;</td> 
-              <td><strong><%= user.name %></td>
+              <td><%= user.name %></td>
               <td><%= user.id %></strong></td>
               <td><%= user.pins.count %> items listed</td>
               <td><%= user.email %> </td>
